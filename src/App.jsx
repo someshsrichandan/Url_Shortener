@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layout/AppLayout";
 import Landing from "./pages/Landing";
 import AuthCation from "./pages/AuthCation";
@@ -6,8 +6,7 @@ import DashBoard from "./pages/Dashboard";
 import Link from "./pages/Link";
 import RedirectUrl from "./pages/RedirectUrl";
 
-
-const router = createBrowserRouter(
+const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
@@ -24,19 +23,19 @@ const router = createBrowserRouter(
         element: <DashBoard />,
       },
       {
-        path:"/link/:id",
+        path: "/link/:id",
         element: <Link />,
       },
       {
         path: "/:id",
         element: <RedirectUrl />,
-      }
-
+      },
     ],
-  }
-);
-function App() {
+  },
+]);
 
-  return <div>jksbfiwe</div>
+function App() {
+  return (<RouterProvider router={router} /> );
 }
-export default App
+
+export default App;
