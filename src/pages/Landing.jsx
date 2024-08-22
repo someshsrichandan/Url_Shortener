@@ -7,10 +7,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import {useNavigate } from 'react-router-dom'
 
 
 const Landing = () => {
-  const [longUrl, setLongUrl] = React.useState()
+  const [longUrl, setLongUrl] = React.useState();
+  const navigate = useNavigate();
+  const handelShorner = (e) => {
+    e.preventDefault();
+    if(longUrl)navigate(`/auth?createNew=${longUrl}`)
+  }
   return (
     <div className='flex flex-col items-center'>
       <h2 className='my-10 text-3xl font-extrabold text-center text-white sm:my-16 sm:text-6xl lg:text-7xl'>
