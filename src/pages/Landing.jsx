@@ -7,24 +7,31 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import {useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 
 const Landing = () => {
-  const [longUrl, setLongUrl] = React.useState();
+  const [longUrl, setLongUrl] = React.useState('');
   const navigate = useNavigate();
-  const handelShorner = (e) => {
+
+  const handleShorner = (e) => {
     e.preventDefault();
-    if(longUrl)navigate(`/auth?createNew=${longUrl}`)
-  }
+    if (longUrl) navigate(`/auth?createNew=${longUrl}`);
+  };
+
   return (
     <div className='flex flex-col items-center'>
       <h2 className='my-10 text-3xl font-extrabold text-center text-white sm:my-16 sm:text-6xl lg:text-7xl'>
-        The only URL Shortener <br />you 🔗ll ever need! 👇
+        The only URL Shortener <br /> you 🔗ll ever need! 👇
       </h2>
-      <form onSubmit={handelShorner()} className='flex flex-col w-full gap-2 sm:h-14 sm:flex-row md:w-2/4'>
-        <Input placeholder='Enter your Loooooooooong URL here' type='url' value={longUrl} className='flex-1 h-full p-4' />
-        <Button onChange={(e)=>{setLongUrl(e.target.value)}} className='h-full' type='submit' variant="destructive">Shorten</Button>
+      <form onSubmit={handleShorner} className='flex flex-col w-full gap-2 sm:h-14 sm:flex-row md:w-2/4'>
+        <Input
+          placeholder='Enter your Loooooooooong URL here'
+          type='url'
+          value={longUrl}
+          onChange={(e) => setLongUrl(e.target.value)}
+          className='flex-1 h-full p-4'
+        />
+        <Button className='h-full' type='submit' variant="destructive">Shorten</Button>
       </form>
       <img src='/Short-URl.svg' className='w-full my-11 md:px-11' alt='illustration' />
 
@@ -49,7 +56,7 @@ const Landing = () => {
         </AccordionItem>
       </Accordion>
     </div>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;
